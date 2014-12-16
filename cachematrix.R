@@ -5,22 +5,27 @@
 ## 
 
 makeCacheMatrix <- function(x = matrix()) {
-  inverseM<-NULL
+  ##create a list containing the matrix and a set of functions to get the data 
+  inverseM<-NULL 
   
   setMatrix<- function(y) {
+    ## can be used to change matrix, inverseM is reset
     x<<-y
     inverseM<<-NULL
   }
   
   getMatrix<-function(){
+    ## returns matrix
     x
   }
   
   setInverse<-function(solve){
+    ## used to set inverse of the matrix
     inverseM<<-solve
   }
   
   getInverse<-function(){
+    ## returns the inverse of matrix stored in cache
     inverseM
   }
   
@@ -47,10 +52,11 @@ cacheSolve <- function(x, ...) {
     return(inverseM)
   }
   
+  ##calculate inverse of 'x'
   dataMatrix<-x$getMatrix()
   inverseM<- solve(dataMatrix,...)
   
-  x$setInverse(inverseM)
+  x$setInverse(inverseM) ## set inverse of 'x' in cache
   
   inverseM
 }
