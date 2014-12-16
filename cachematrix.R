@@ -4,8 +4,6 @@
 ## functions : setMatrix, getMatrix, setInverse and getInverse
 ## 
 
-## Write a short comment describing this function
-
 makeCacheMatrix <- function(x = matrix()) {
   inverseM<-NULL
   
